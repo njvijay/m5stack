@@ -37,7 +37,7 @@ def getAPI():
   result = dict()
   try:
     req = urequests.request(method='GET', url='https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=BTC,ETH,LTC', headers={'X-CMC_PRO_API_KEY':'XXXXXXXXXXXXXXX','Accept':'application/json'})
-    req1 = urequests.request(method='GET', url='https://192.168.86.62:4081/api/blocks/tip/height')
+    req1 = urequests.request(method='GET', url='https://mempool.space/api/blocks/tip/height')
     BTCPrice = round(json.loads((req.text))["data"]["BTC"]["quote"]["USD"]["price"],2)
     BTCMarketCap = round(json.loads((req.text))["data"]["BTC"]["quote"]["USD"]["market_cap"]/1000000000,2)
     BTCBlock = req1.text
